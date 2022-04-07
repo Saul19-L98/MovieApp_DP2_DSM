@@ -8,10 +8,14 @@ public class Movie {
     private String premierYear;
     private String score;
 
-    public Movie( String title, String description, String prmierYear, String score) {
+    public  Movie(){
+
+    }
+
+    public Movie(String title, String description, String premierYear, String score) {
         this.title = title;
         this.description = description;
-        this.premierYear = prmierYear;
+        this.premierYear = premierYear;
         this.score = score;
     }
 
@@ -27,8 +31,8 @@ public class Movie {
         return title;
     }
 
-    public void setTittle(String tittle) {
-        this.title = tittle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -43,8 +47,8 @@ public class Movie {
         return premierYear;
     }
 
-    public void setPremierYear(String prmierYear) {
-        this.premierYear = prmierYear;
+    public void setPremierYear(String premierYear) {
+        this.premierYear = premierYear;
     }
 
     public String getScore() {

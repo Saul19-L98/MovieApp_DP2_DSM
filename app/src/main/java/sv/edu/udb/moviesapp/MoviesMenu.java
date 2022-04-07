@@ -35,14 +35,17 @@ public class MoviesMenu extends AppCompatActivity {
     //Realtime Database
     public static FirebaseDatabase database = FirebaseDatabase.getInstance();
     public static DatabaseReference refMovies = database.getReference("movies");
+
     // Ordenamiento
-    Query consultaOrdenada = refMovies.orderByChild("premierYear");
+    Query consultaOrdenada1 = refMovies.orderByChild("title");
+    Query consultaOrdenada2 = refMovies.orderByChild("premierYear");
+    Query consultaOrdenada3 = refMovies.orderByChild("score");
 
     List<Movie> movies;
     ListView moviesList;
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    TextView logout;
+    TextView logout,tvYear,tvScore;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
 
@@ -52,18 +55,80 @@ public class MoviesMenu extends AppCompatActivity {
         setContentView(R.layout.activity_movies_menu);
         startUp();
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        gsc = GoogleSignIn.getClient(this,gso);
+        gsc = GoogleSignIn.getClient(this, gso);
 
-
-        logout.setOnClickListener(new View.OnClickListener(){
+        tvYear.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View view) {
+                movies = new ArrayList<>();
+                // Cambiarlo refProductos a consultaOrdenada para ordenar lista
+                consultaOrdenada2.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // Procedimiento que se ejecuta cuando hubo algun cambio
+                        // en la base de datos
+                        // Se actualiza la coleccion de personas
+                        movies.removeAll(movies);
+                        for (DataSnapshot dato : dataSnapshot.getChildren()) {
+                            Movie movie = dato.getValue(Movie.class);
+                            movie.setKey(dato.getKey());
+                            movies.add(movie);
+                        }
+
+                        AdapterMovie adapter = new AdapterMovie(MoviesMenu.this,
+                                movies);
+                        moviesList.setAdapter(adapter);
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+            }
+        });
+
+        tvScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                movies = new ArrayList<>();
+                // Cambiarlo refProductos a consultaOrdenada para ordenar lista
+                consultaOrdenada3.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // Procedimiento que se ejecuta cuando hubo algun cambio
+                        // en la base de datos
+                        // Se actualiza la coleccion de personas
+                        movies.removeAll(movies);
+                        for (DataSnapshot dato : dataSnapshot.getChildren()) {
+                            Movie movie = dato.getValue(Movie.class);
+                            movie.setKey(dato.getKey());
+                            movies.add(movie);
+                        }
+
+                        AdapterMovie adapter = new AdapterMovie(MoviesMenu.this,
+                                movies);
+                        moviesList.setAdapter(adapter);
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MoviesMenu.this,MainActivity.class);
+                Intent intent = new Intent(MoviesMenu.this, MainActivity.class);
                 startActivity(intent);
                 signOut();
             }
         });
+
     }
 
     void signOut(){
@@ -76,8 +141,12 @@ public class MoviesMenu extends AppCompatActivity {
         });
     }
 
+
     public void startUp(){
         logout = findViewById(R.id.logout);
+        tvYear = findViewById(R.id.tvYear);
+        tvScore = findViewById(R.id.tvScore);
+
         ////////////////////////////////////////////////////////////////////
         //  Realtime Database
         FloatingActionButton fab_agregar= findViewById(R.id.fab_agregar);
@@ -98,6 +167,7 @@ public class MoviesMenu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         // Cuando el usuario hace un LongClic (clic sin soltar elemento por mas de 2 segundos)
         // Es por que el usuario quiere eliminar el registro
@@ -150,7 +220,7 @@ public class MoviesMenu extends AppCompatActivity {
         movies = new ArrayList<>();
 
         // Cambiarlo refProductos a consultaOrdenada para ordenar lista
-        consultaOrdenada.addValueEventListener(new ValueEventListener() {
+        consultaOrdenada1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Procedimiento que se ejecuta cuando hubo algun cambio
@@ -171,6 +241,8 @@ public class MoviesMenu extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
+
+
         });
         //
         ////////////////////////////////////////////////////////////////////

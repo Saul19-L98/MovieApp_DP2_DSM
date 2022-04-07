@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "783774467688",
+    "project_id": "moviesapp-e8791",
+    "storage_bucket": "moviesapp-e8791.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783774467688:android:ff0831797957b1479b9ddd",
+        "android_client_info": {
+          "package_name": "sv.edu.udb.moviesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783774467688-a9bq1al83e15jvhimkcr27ttujc1mhkm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sv.edu.udb.moviesapp",
+            "certificate_hash": "2968b40bb4605654623e482e2286e83528661ee6"
+          }
+        },
+        {
+          "client_id": "783774467688-ol17df5e1qfnu2s4mk0oqoj62sc6baif.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt5Xfh8iScSvWJG1f4evQ-0W8QiaHK81k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783774467688-ol17df5e1qfnu2s4mk0oqoj62sc6baif.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

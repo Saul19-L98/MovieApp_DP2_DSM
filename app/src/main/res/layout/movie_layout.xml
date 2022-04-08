@@ -13,7 +13,7 @@
         <ImageView
             android:id="@+id/imgImagen"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="105dp"
             tools:srcCompat="@tools:sample/avatars"
             tools:visibility="visible" />
 

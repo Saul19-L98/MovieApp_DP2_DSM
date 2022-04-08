@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.logging.StreamHandler;
 
 public class AdapterMovie extends ArrayAdapter<Movie> {
     List<Movie> movies;
@@ -55,9 +56,9 @@ public class AdapterMovie extends ArrayAdapter<Movie> {
         tvPremierYear.setText("Año de estreno: "+movies.get(position).getPremierYear());
         tvScore.setText("Puntuación: "+movies.get(position).getScore());
 
-        tvUrl.setText(movies.get(position).getImagen());
+        //tvUrl.setText(movies.get(position).getImagen());
 
-        Picasso.get().load(String.valueOf(rowview.findViewById(R.id.tvUrl))).error(R.mipmap.ic_launcher_round).into(imgImagen);
+        Picasso.get().load(String.valueOf(movies)).error(R.mipmap.ic_launcher_round).into(imgImagen);
 
         return rowview;
     }

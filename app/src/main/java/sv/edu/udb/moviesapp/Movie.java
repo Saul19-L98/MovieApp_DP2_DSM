@@ -7,16 +7,17 @@ public class Movie {
     private String description;
     private String premierYear;
     private String score;
-
+    private String imagen;
     public  Movie(){
 
     }
 
-    public Movie(String title, String description, String premierYear, String score) {
+    public Movie(String title, String description, String premierYear, String score, String imagen) {
         this.title = title;
         this.description = description;
         this.premierYear = premierYear;
         this.score = score;
+        this.imagen = imagen;
     }
 
     public String getKey() {
@@ -58,4 +59,8 @@ public class Movie {
     public void setScore(String score) {
         this.score = score;
     }
+
+    public String getImagen(){return imagen;}
+
+    public void setImagen(String imagen){this.imagen=imagen;}
 }

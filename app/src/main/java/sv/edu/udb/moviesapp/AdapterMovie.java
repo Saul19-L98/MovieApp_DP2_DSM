@@ -14,11 +14,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class AdapterMovie extends ArrayAdapter<Movie> {
     List<Movie> movies;
     private Activity context;
+
+    String URL;
 
     public AdapterMovie(@NonNull Activity context, @NonNull List<Movie> movies){
         super(context, R.layout.movie_layout,movies);
@@ -51,8 +55,9 @@ public class AdapterMovie extends ArrayAdapter<Movie> {
         tvPremierYear.setText("Año de estreno: "+movies.get(position).getPremierYear());
         tvScore.setText("Puntuación: "+movies.get(position).getScore());
 
-        tvUrl.setText("Url imagen:" +movies.get(position).getImagen());
-        
+        tvUrl.setText(movies.get(position).getImagen());
+
+        Picasso.get().load(String.valueOf(rowview.findViewById(R.id.tvUrl))).error(R.mipmap.ic_launcher_round).into(imgImagen);
 
         return rowview;
     }

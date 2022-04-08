@@ -23,7 +23,6 @@
                 android:id="@+id/logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
                 android:background="@drawable/style_bordes"
                 android:clickable="true"
                 android:focusable="true"
@@ -44,7 +43,8 @@
                 android:text="Año"
                 android:textAlignment="textEnd"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                />
 
             <TextView
                 android:id="@+id/tvScore"

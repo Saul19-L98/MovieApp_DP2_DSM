@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 public class AddMovie extends AppCompatActivity {
 
@@ -44,6 +45,7 @@ public class AddMovie extends AppCompatActivity {
         edtDescription.setText(description);
         edtPremierYear.setText(premierYear);
         edtScore.setText(score);
+        edtImagen.setText(imagen);
     }
 
     public void save(View v){
@@ -54,7 +56,7 @@ public class AddMovie extends AppCompatActivity {
         String imagen = edtImagen.getText().toString();
 
         // Se forma objeto persona
-        Movie movie = new Movie(title,description,premierYear,score);
+        Movie movie = new Movie(title,description,premierYear,score,imagen);
 
         if (accion.equals("a")) { //Agregar usando push()
             MoviesMenu.refMovies.push().setValue(movie);

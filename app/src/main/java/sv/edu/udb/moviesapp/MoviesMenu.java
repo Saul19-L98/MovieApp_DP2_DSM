@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +47,7 @@ public class MoviesMenu extends AppCompatActivity {
     //////////////////////////////////////////////////////////////////////////////////////////
 
     TextView logout,tvYear,tvScore;
+    ImageView imgImagen;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
 
@@ -146,6 +148,7 @@ public class MoviesMenu extends AppCompatActivity {
         logout = findViewById(R.id.logout);
         tvYear = findViewById(R.id.tvYear);
         tvScore = findViewById(R.id.tvScore);
+        imgImagen = findViewById(R.id.imgImagen);
 
         ////////////////////////////////////////////////////////////////////
         //  Realtime Database
@@ -164,6 +167,7 @@ public class MoviesMenu extends AppCompatActivity {
                 intent.putExtra("description",movies.get(i).getDescription());
                 intent.putExtra("premierYear",movies.get(i).getPremierYear());
                 intent.putExtra("score",movies.get(i).getScore());
+                intent.putExtra("imagen",movies.get(i).getImagen());
                 startActivity(intent);
             }
         });
@@ -213,6 +217,7 @@ public class MoviesMenu extends AppCompatActivity {
                 i.putExtra("description","");
                 i.putExtra("premierYear","");
                 i.putExtra("score","");
+                i.putExtra("imagen","");
                 startActivity(i);
             }
         });

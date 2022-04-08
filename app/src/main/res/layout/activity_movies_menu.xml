@@ -24,10 +24,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:background="@drawable/style_bordes"
                 android:clickable="true"
                 android:focusable="true"
-                android:text="Cerrar Sesión"
-                android:textAlignment="textEnd"
+                android:text="Logout"
+                android:textAlignment="center"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="20sp" />
 
@@ -37,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginStart="40dp"
+                android:background="@drawable/style_bordes"
                 android:clickable="true"
                 android:focusable="true"
                 android:text="Año"
@@ -47,9 +49,10 @@
             <TextView
                 android:id="@+id/tvScore"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_gravity="end"
                 android:layout_marginStart="40dp"
+                android:background="@drawable/style_bordes"
                 android:clickable="true"
                 android:focusable="true"
                 android:text="Puntución"

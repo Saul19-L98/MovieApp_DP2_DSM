@@ -8,8 +8,9 @@ import android.widget.EditText;
 
 public class AddMovie extends AppCompatActivity {
 
-    EditText edtTitle, edtDescription, edtPremierYear, edtScore;
-    String key="",title="",description="",premierYear="",score="",accion="";
+    EditText edtTitle, edtDescription, edtPremierYear, edtScore, edtImagen;
+    String key="",title="",description="",premierYear="",score="",accion="", imagen="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,7 @@ public class AddMovie extends AppCompatActivity {
         edtPremierYear = findViewById(R.id.edtPremierYear);
         edtScore = findViewById(R.id.edtScore);
 
+        edtImagen=findViewById(R.id.edtImagen);
 
         // Obtención de datos que envia actividad anterior
         Bundle datos = getIntent().getExtras();
@@ -34,6 +36,8 @@ public class AddMovie extends AppCompatActivity {
 
         premierYear = datos.getString("premierYear");
         score = datos.getString("score");
+
+        imagen = datos.getString("imagen");
 
         accion=datos.getString("accion");
         edtTitle.setText(title);
@@ -47,6 +51,7 @@ public class AddMovie extends AppCompatActivity {
         String description = edtDescription.getText().toString();
         String premierYear = edtPremierYear.getText().toString();
         String score = edtScore.getText().toString();
+        String imagen = edtImagen.getText().toString();
 
         // Se forma objeto persona
         Movie movie = new Movie(title,description,premierYear,score);

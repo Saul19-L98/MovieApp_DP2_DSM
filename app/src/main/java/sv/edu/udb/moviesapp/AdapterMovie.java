@@ -1,9 +1,6 @@
 package sv.edu.udb.moviesapp;
 
 import android.app.Activity;
-import android.media.Image;
-import android.net.Uri;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +14,6 @@ import androidx.annotation.Nullable;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-import java.util.logging.StreamHandler;
 
 public class AdapterMovie extends ArrayAdapter<Movie> {
     List<Movie> movies;
@@ -58,8 +54,9 @@ public class AdapterMovie extends ArrayAdapter<Movie> {
 
         //tvUrl.setText(movies.get(position).getImagen());
 
-        Picasso.get().load(String.valueOf(movies)).error(R.mipmap.ic_launcher_round).into(imgImagen);
-
+//      Picasso.get().load(String.valueOf("https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png")).error(R.mipmap.ic_launcher_round).into(imgImagen);
+        Picasso.get().load(movies.get(position).getImagen()).error(R.drawable.navegador).into(imgImagen);
+//        imgImagen.notify();
         return rowview;
     }
 }

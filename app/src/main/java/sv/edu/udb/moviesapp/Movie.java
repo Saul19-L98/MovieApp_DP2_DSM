@@ -8,6 +8,7 @@ public class Movie {
     private String premierYear;
     private String score;
     private String imagen;
+
     public  Movie(){
 
     }
